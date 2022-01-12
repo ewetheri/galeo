@@ -1,0 +1,102 @@
+<div class="sheet-galeo">
+	<div class="licensecontainer compendium-drop-target">
+		<input class="sheet-toggle-npc" name="attr_npc" type="hidden" value="0">
+		<!-- TODO Change rolls mada faka -->
+		<div class="sheet-section-roll">
+			<input type="hidden" name="attr_rtype" class="sheet-roll-toggle">
+			<div class="sheet-section-roll-advantage">
+				<label class="sheet-radio">
+					<input type="radio" name="attr_advantagetoggle" value="{{query=1}} {{advantage=1}} {{r2=[[@{d20}">
+					<span title="@{advantagetoggle}">Advantage</span>
+				</label>
+				<label class="sheet-radio">
+					<input type="radio" name="attr_advantagetoggle" value="{{query=1}} {{normal=1}} {{r2=[[0d20" checked="checked">
+					<span title="@{advantagetoggle}">Normal</span>
+				</label>
+				<label class="sheet-radio">
+					<input type="radio" name="attr_advantagetoggle" value="{{query=1}} {{disadvantage=1}} {{r2=[[@{d20}">
+					<span title="@{advantagetoggle}">Disadvantage</span>
+				</label>
+			</div>
+			<input type="hidden" name="attr_wtype" class="sheet-roll-toggle">
+			<div class="sheet-section-roll-whisper">
+				<label class="sheet-radio">
+					<input type="radio" name="attr_whispertoggle" value="" checked="checked">
+					<span title="@{whispertoggle}">Public</span>
+				</label>
+				<label class="sheet-radio">
+					<input type="radio" name="attr_whispertoggle" value="/w gm ">
+					<span title="@{whispertoggle}">To GM</span>
+				</label>
+			</div>
+		</div>
+		<div class="sheet-section-npc">
+		</div>
+		<div class="sheet-section-pc">
+			<div class="sheet-section-pc-header">
+				<div class="sheet-section-pc-header-logo">
+					<div></div>
+				</div>
+				<div class="sheet-section-pc-header-name">
+					<input type="text" name="attr_character_name" title="@{character_name}">
+				</div>
+				<div class="sheet-section-pc-header-details">
+					<div class="sheet-form">
+						<div class="sheet-form-header">Character Details</div>
+						<div class="sheet-form-body">
+							<div class="sheet-form-group">
+								<label>Class:</label>
+								<input type="text" name="attr_character_class" title="@{character_class}">
+								<label>Level:</label>
+								<input type="number" name="attr_level" value="1">
+							</div>
+							<div class="sheet-form-group">
+								<label>Kine:</label>
+								<input type="text" name="attr_kine">
+								<label>Height:</label>
+								<input type="text" name="attr_height" value="2 m">
+								<label>Weight:</label>
+								<input type="text" name="attr_weight" value="70 kg">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sheet-section-pc-body">
+				<div class="sheet-tabs">
+					<div class="sheet-tab sheet-tab-core">
+						<input type="radio" name="attr_tab" value="core" checked="checked">
+						<span class="sheet-tab-label">Core</span>
+						<div class="sheet-tab-content">
+						
+						</div>
+					</div>
+					<div class="sheet-tab sheet-tab-character">
+						<input type="radio" name="attr_tab" value="character">
+						<span class="sheet-tab-label">Character</span>
+						<div class="sheet-tab-content">
+						
+						</div>
+					</div>
+					<div class="sheet-tab sheet-tab-gundyr">
+						<input type="radio" name="attr_tab" value="gundyr">
+						<span class="sheet-tab-label">Gundyr</span>
+						<div class="sheet-tab-content">
+						
+						</div>
+					</div>
+					<div class="sheet-tab sheet-tab-options">
+						<input type="radio" name="attr_tab" value="options">
+						<span class="sheet-tab-label">Options</span>
+						<div class="sheet-tab-content">
+						
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sheet-section-pc-footer">
+				<p>Galeo Character Sheet</p>
+			</div>
+		</div>
+	</div>
+</div>
