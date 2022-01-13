@@ -4,18 +4,18 @@
 		<!-- TODO Change rolls mada faka -->
 		<div class="sheet-section-roll">
 			<input type="hidden" name="attr_rtype" class="sheet-roll-toggle">
-			<div class="sheet-section-roll-advantage">
+			<div class="sheet-section-roll-probable">
 				<label class="sheet-radio">
-					<input type="radio" name="attr_advantagetoggle" value="{{query=1}} {{advantage=1}} {{r2=[[@{d20}">
-					<span title="@{advantagetoggle}">Advantage</span>
+					<input type="radio" name="attr_probabletoggle" value="{{query=1}} {{probable=1}} {{r2=[[@{d20}">
+					<span title="@{advantagetoggle}">Probable</span>
 				</label>
 				<label class="sheet-radio">
-					<input type="radio" name="attr_advantagetoggle" value="{{query=1}} {{normal=1}} {{r2=[[0d20" checked="checked">
+					<input type="radio" name="attr_probabletoggle" value="{{query=1}} {{normal=1}} {{r2=[[0d20" checked="checked">
 					<span title="@{advantagetoggle}">Normal</span>
 				</label>
 				<label class="sheet-radio">
-					<input type="radio" name="attr_advantagetoggle" value="{{query=1}} {{disadvantage=1}} {{r2=[[@{d20}">
-					<span title="@{advantagetoggle}">Disadvantage</span>
+					<input type="radio" name="attr_probabletoggle" value="{{query=1}} {{improbable=1}} {{r2=[[@{d20}">
+					<span title="@{advantagetoggle}">Improbable</span>
 				</label>
 			</div>
 			<input type="hidden" name="attr_wtype" class="sheet-roll-toggle">
@@ -68,21 +68,100 @@
 						<input type="radio" name="attr_tab" value="core" checked="checked">
 						<span class="sheet-tab-label">Core</span>
 						<div class="sheet-tab-content">
-						
+							<div class="sheet-container-well sheet-pc-primaries">
+								<div class="sheet-container-primary">
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_vigor" value="@{wtype}&{template:simple} {{rname=Vigor}} {{mod=@{vigor}}} {{r1=[[@{d20}+@{vigor}[Vigor]]]}} @{rtype}+@{vigor}[Vigor]]]}} @{charname_output}">Vigor</button>
+									</div>
+									<div class="sheet-container-body">
+										<input type="text" name="attr_vigor" title="@{vigor}" value="-1">
+									</div>
+								</div>
+								<div class="sheet-container-primary">
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_intellect" value="@{wtype}&{template:simple} {{rname=Intellect}} {{mod=@{intellect}}} {{r1=[[@{d20}+@{intellect}[Intellect]]]}} @{rtype}+@{intellect}[Intellect]]]}} @{charname_output}">Intellect</button>
+									</div>
+									<div class="sheet-container-body">
+										<input type="text" name="attr_intellect" title="@{intellect}" value="-1">
+									</div>
+								</div>
+								<div class="sheet-container-primary">
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_prowess" value="@{wtype}&{template:simple} {{rname=Prowess}} {{mod=@{prowess}}} {{r1=[[@{d20}+@{prowess}[Prowess]]]}} @{rtype}+@{prowess}[Prowess]]]}} @{charname_output}">Prowess</button>
+									</div>
+									<div class="sheet-container-body">
+										<input type="text" name="attr_prowess" title="@{prowess}" value="-1">
+									</div>
+								</div>
+								<div class="sheet-container-primary">
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_spirit" value="@{wtype}&{template:simple} {{rname=Spirit}} {{mod=@{spirit}}} {{r1=[[@{d20}+@{spirit}[Spirit]]]}} @{rtype}+@{spirit}[Spirit]]]}} @{charname_output}">Spirit</button>
+									</div>
+									<div class="sheet-container-body">
+										<input type="text" name="attr_spirit" title="@{spirit}" value="-1">
+									</div>
+								</div>
+							</div>
+							<div class="sheet-container-well sheet-pc-secondaries">
+							</div>
+							<div class="sheet-container-well sheet-pc-gundyr">
+							</div>
+							<div class="sheet-container-well sheet-pc-proficiencies">
+							</div>
+							<div class="sheet-container-well sheet-pc-abilities">
+							</div>
 						</div>
 					</div>
 					<div class="sheet-tab sheet-tab-character">
 						<input type="radio" name="attr_tab" value="character">
 						<span class="sheet-tab-label">Character</span>
 						<div class="sheet-tab-content">
-						
+							<div class="sheet-container-well sheet-pc-primaries">
+								<div class="sheet-container-primary">
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_vigor" value="@{wtype}&{template:simple} {{rname=Vigor}} {{mod=@{vigor}}} {{r1=[[@{d20}+@{vigor}[Vigor]]]}} @{rtype}+@{vigor}[Vigor]]]}} @{charname_output}">Vigor</button>
+									</div>
+									<div class="sheet-container-body">
+										<input type="text" name="attr_vigor" title="@{vigor}" value="-1">
+									</div>
+								</div>
+								<div class="sheet-container-primary">
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_intellect" value="@{wtype}&{template:simple} {{rname=Intellect}} {{mod=@{intellect}}} {{r1=[[@{d20}+@{intellect}[Intellect]]]}} @{rtype}+@{intellect}[Intellect]]]}} @{charname_output}">Intellect</button>
+									</div>
+									<div class="sheet-container-body">
+										<input type="text" name="attr_intellect" title="@{intellect}" value="-1">
+									</div>
+								</div>
+								<div class="sheet-container-primary">
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_prowess" value="@{wtype}&{template:simple} {{rname=Prowess}} {{mod=@{prowess}}} {{r1=[[@{d20}+@{prowess}[Prowess]]]}} @{rtype}+@{prowess}[Prowess]]]}} @{charname_output}">Prowess</button>
+									</div>
+									<div class="sheet-container-body">
+										<input type="text" name="attr_prowess" title="@{prowess}" value="-1">
+									</div>
+								</div>
+								<div class="sheet-container-primary">
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_spirit" value="@{wtype}&{template:simple} {{rname=Spirit}} {{mod=@{spirit}}} {{r1=[[@{d20}+@{spirit}[Spirit]]]}} @{rtype}+@{spirit}[Spirit]]]}} @{charname_output}">Spirit</button>
+									</div>
+									<div class="sheet-container-body">
+										<input type="text" name="attr_spirit" title="@{spirit}" value="-1">
+									</div>
+								</div>
+							</div>
+							<div class="sheet-container-well sheet-pc-secondaries">
+							</div>
+							<div class="sheet-container-well sheet-pc-proficiencies">
+							</div>
 						</div>
 					</div>
 					<div class="sheet-tab sheet-tab-gundyr">
 						<input type="radio" name="attr_tab" value="gundyr">
 						<span class="sheet-tab-label">Gundyr</span>
 						<div class="sheet-tab-content">
-						
+							<div class="sheet-container-well sheet-pc-gundyr">
+							</div>
 						</div>
 					</div>
 					<div class="sheet-tab sheet-tab-options">
