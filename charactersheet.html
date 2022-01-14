@@ -69,7 +69,7 @@
 						<span class="sheet-tab-label">Core</span>
 						<div class="sheet-tab-content">
 							<div class="sheet-container-well sheet-pc-primaries">
-								<div class="sheet-container-primary">
+								<div class="sheet-pc-primary">
 									<div class="sheet-container-header">
 										<button type="roll" name="roll_vigor" value="@{wtype}&{template:simple} {{rname=Vigor}} {{mod=@{vigor}}} {{r1=[[@{d20}+@{vigor}[Vigor]]]}} @{rtype}+@{vigor}[Vigor]]]}} @{charname_output}">Vigor</button>
 									</div>
@@ -77,7 +77,7 @@
 										<input type="text" name="attr_vigor" title="@{vigor}" value="-1">
 									</div>
 								</div>
-								<div class="sheet-container-primary">
+								<div class="sheet-pc-primary">
 									<div class="sheet-container-header">
 										<button type="roll" name="roll_intellect" value="@{wtype}&{template:simple} {{rname=Intellect}} {{mod=@{intellect}}} {{r1=[[@{d20}+@{intellect}[Intellect]]]}} @{rtype}+@{intellect}[Intellect]]]}} @{charname_output}">Intellect</button>
 									</div>
@@ -85,7 +85,7 @@
 										<input type="text" name="attr_intellect" title="@{intellect}" value="-1">
 									</div>
 								</div>
-								<div class="sheet-container-primary">
+								<div class="sheet-pc-primary">
 									<div class="sheet-container-header">
 										<button type="roll" name="roll_prowess" value="@{wtype}&{template:simple} {{rname=Prowess}} {{mod=@{prowess}}} {{r1=[[@{d20}+@{prowess}[Prowess]]]}} @{rtype}+@{prowess}[Prowess]]]}} @{charname_output}">Prowess</button>
 									</div>
@@ -93,7 +93,7 @@
 										<input type="text" name="attr_prowess" title="@{prowess}" value="-1">
 									</div>
 								</div>
-								<div class="sheet-container-primary">
+								<div class="sheet-pc-primary">
 									<div class="sheet-container-header">
 										<button type="roll" name="roll_spirit" value="@{wtype}&{template:simple} {{rname=Spirit}} {{mod=@{spirit}}} {{r1=[[@{d20}+@{spirit}[Spirit]]]}} @{rtype}+@{spirit}[Spirit]]]}} @{charname_output}">Spirit</button>
 									</div>
@@ -105,6 +105,56 @@
 							<div class="sheet-container-well sheet-pc-secondaries">
 							</div>
 							<div class="sheet-container-well sheet-pc-gundyr">
+								<div class="sheet-pc-gundyr-defense">
+									<div></div>
+									<div class="sheet-container-body">
+										<input type="text" name="attr_defense" title="@{defense}" value="10">
+									</div>
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_defense" value="@{wtype}&{template:simple} {{rname=Defense}} {{mod=@{defense}}} {{r1=[[@{defense}[Defense]]]}} @{rtype}+@{defense}[Defense]]]}} @{charname_output}">Defense</button>
+									</div>
+								</div>
+								<div class="sheet-pc-gundyr-speed">
+									<div></div>
+									<div class="sheet-container-body">
+										<input type="text" name="attr_gundyrSpeed" title="@{gundyrSpeed}" value="10">
+									</div>
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_gundyrSpeed" value="@{wtype}&{template:simple} {{rname=GundyrSpeed}} {{mod=@{gundyrSpeed}}} {{r1=[[@{gundyrSpeed}[GundyrSpeed]]]}} @{rtype}+@{gundyrSpeed}[GundyrSpeed]]]}} @{charname_output}">Speed</button>
+									</div>
+								</div>
+								<div class="sheet-pc-gundyr-durability">
+									<div></div>
+									<div class="sheet-container-body">
+										<input type="text" name="attr_gundyrDurability" title="@{gundyrDurability}" value="10">
+										<span>/</span>
+										<input type="text" name="attr_gundyrDurability_max" title="@{gundyrDurability_max}" value="10">
+									</div>
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_gundyrDurability" value="@{wtype}&{template:simple} {{rname=GundyrDurability}} {{mod=@{gundyrDurability}}} {{r1=[[@{gundyrDurability}[GundyrDurability]]]}} @{rtype}+@{gundyrDurability}[GundyrDurability]]]}} @{charname_output}"> Durability</button>
+									</div>
+								</div>
+								<div class="sheet-pc-gundyr-runes">
+									<div></div>
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_gundyrLesserRunes" value="@{wtype}&{template:simple} {{rname=GundyrLesserRunes}} {{mod=@{gundyrLesserRunes}}} {{r1=[[@{gundyrLesserRunes}[GundyrLesserRunes]]]}} @{rtype}+@{gundyrLesserRunes}[GundyrLesserRunes]]]}} @{charname_output}">Lesser Runes</button>
+										<button type="roll" name="roll_gundyrGreaterRunes" value="@{wtype}&{template:simple} {{rname=GundyrGreaterRunes}} {{mod=@{gundyrGreaterRunes}}} {{r1=[[@{gundyrGreaterRunes}[GundyrGreaterRunes]]]}} @{rtype}+@{gundyrGreaterRunes}[GundyrGreaterRunes]]]}} @{charname_output}">Greater Runes</button>
+									</div>
+									<div class="sheet-container-body">
+										<input type="text" name="attr_gundyrLesserRunes" title="@{gundyrLesserRunes}" value="0">
+										<span>/</span>
+										<input type="text" name="attr_gundyrGreaterRunes" title="@{gundyrGreaterRunes}" value="0">
+									</div>
+								</div>
+								<div class="sheet-pc-gundyr-amplification">
+									<div></div>
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_gundyrAmplification" value="@{wtype}&{template:simple} {{rname=GundyrAmplification}} {{mod=@{gundyrAmplification}}} {{r1=[[@{gundyrAmplification}[GundyrAmplification]]]}} @{rtype}+@{gundyrAmplification}[GundyrAmplification]]]}} @{charname_output}">Amplification</button>
+									</div>
+									<div class="sheet-container-body">
+										<input type="text" name="attr_gundyrAmplification" title="@{gundyrAmplification}" value="0">
+									</div>
+								</div>
 							</div>
 							<div class="sheet-container-well sheet-pc-proficiencies">
 							</div>
@@ -117,7 +167,7 @@
 						<span class="sheet-tab-label">Character</span>
 						<div class="sheet-tab-content">
 							<div class="sheet-container-well sheet-pc-primaries">
-								<div class="sheet-container-primary">
+								<div class="sheet-pc-primary">
 									<div class="sheet-container-header">
 										<button type="roll" name="roll_vigor" value="@{wtype}&{template:simple} {{rname=Vigor}} {{mod=@{vigor}}} {{r1=[[@{d20}+@{vigor}[Vigor]]]}} @{rtype}+@{vigor}[Vigor]]]}} @{charname_output}">Vigor</button>
 									</div>
@@ -125,7 +175,7 @@
 										<input type="text" name="attr_vigor" title="@{vigor}" value="-1">
 									</div>
 								</div>
-								<div class="sheet-container-primary">
+								<div class="sheet-pc-primary">
 									<div class="sheet-container-header">
 										<button type="roll" name="roll_intellect" value="@{wtype}&{template:simple} {{rname=Intellect}} {{mod=@{intellect}}} {{r1=[[@{d20}+@{intellect}[Intellect]]]}} @{rtype}+@{intellect}[Intellect]]]}} @{charname_output}">Intellect</button>
 									</div>
@@ -133,7 +183,7 @@
 										<input type="text" name="attr_intellect" title="@{intellect}" value="-1">
 									</div>
 								</div>
-								<div class="sheet-container-primary">
+								<div class="sheet-pc-primary">
 									<div class="sheet-container-header">
 										<button type="roll" name="roll_prowess" value="@{wtype}&{template:simple} {{rname=Prowess}} {{mod=@{prowess}}} {{r1=[[@{d20}+@{prowess}[Prowess]]]}} @{rtype}+@{prowess}[Prowess]]]}} @{charname_output}">Prowess</button>
 									</div>
@@ -141,7 +191,7 @@
 										<input type="text" name="attr_prowess" title="@{prowess}" value="-1">
 									</div>
 								</div>
-								<div class="sheet-container-primary">
+								<div class="sheet-pc-primary">
 									<div class="sheet-container-header">
 										<button type="roll" name="roll_spirit" value="@{wtype}&{template:simple} {{rname=Spirit}} {{mod=@{spirit}}} {{r1=[[@{d20}+@{spirit}[Spirit]]]}} @{rtype}+@{spirit}[Spirit]]]}} @{charname_output}">Spirit</button>
 									</div>
@@ -161,6 +211,16 @@
 						<span class="sheet-tab-label">Gundyr</span>
 						<div class="sheet-tab-content">
 							<div class="sheet-container-well sheet-pc-gundyr">
+								<div class="sheet-pc-gundyr-defense">
+								</div>
+								<div class="sheet-pc-gundyr-speed">
+								</div>
+								<div class="sheet-pc-gundyr-durability">
+								</div>
+								<div class="sheet-pc-gundyr-runes">
+								</div>
+								<div class="sheet-pc-gundyr-amplification">
+								</div>
 							</div>
 						</div>
 					</div>
