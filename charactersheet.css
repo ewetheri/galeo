@@ -416,7 +416,7 @@ charsheet .sheet-galeo {
 }
 .charsheet .sheet-galeo .sheet-section-pc .sheet-pc-gundyr .sheet-pc-gundyr-durability {
   grid-area: durability;
-  background: url("https://raw.githubusercontent.com/ewetheri/galeo/1b4fb8ce78736a0db7feb8900c95cc0f1f1d7520/resources/stat-wide.svg");
+  background: url("https://raw.githubusercontent.com/ewetheri/galeo/162bba0f2810c8064d510045958f9933f895ff51/resources/gundyr-durability.svg");
   background-size: 100% 100%;
   display: grid;
   grid-template-columns: 1fr;
@@ -426,7 +426,7 @@ charsheet .sheet-galeo {
 }
 .charsheet .sheet-galeo .sheet-section-pc .sheet-pc-gundyr .sheet-pc-gundyr-runes {
   grid-area: runes;
-  background: url("https://raw.githubusercontent.com/ewetheri/galeo/1b4fb8ce78736a0db7feb8900c95cc0f1f1d7520/resources/secondary-stat.svg");
+  background: url("https://raw.githubusercontent.com/ewetheri/galeo/162bba0f2810c8064d510045958f9933f895ff51/resources/gundyr-runes.svg");
   background-size: 100% 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -436,7 +436,7 @@ charsheet .sheet-galeo {
 }
 .charsheet .sheet-galeo .sheet-section-pc .sheet-pc-gundyr .sheet-pc-gundyr-amplification {
   grid-area: amplification;
-  background: url("https://raw.githubusercontent.com/ewetheri/galeo/1b4fb8ce78736a0db7feb8900c95cc0f1f1d7520/resources/secondary-stat.svg");
+  background: url("https://raw.githubusercontent.com/ewetheri/galeo/162bba0f2810c8064d510045958f9933f895ff51/resources/gundyr-amplification.svg");
   background-size: 100% 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
