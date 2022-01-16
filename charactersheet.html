@@ -125,34 +125,43 @@
 								</div>
 								<div class="sheet-pc-gundyr-durability">
 									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
 									<div class="sheet-container-body">
 										<input type="text" name="attr_gundyrDurability" title="@{gundyrDurability}" value="10">
-										<span>/</span>
-										<input type="text" name="attr_gundyrDurability_max" title="@{gundyrDurability_max}" value="10">
 									</div>
+									<div class="sheet-container-body">
+										<input class="sheet-pc-gundyr-durability-max-input" type="text" name="attr_gundyrDurability_max" title="@{gundyrDurability_max}" value="10">
+									</div>
+									<div></div>
 									<div class="sheet-container-header">
 										<button type="roll" name="roll_gundyrDurability" value="@{wtype}&{template:simple} {{rname=GundyrDurability}} {{mod=@{gundyrDurability}}} {{r1=[[@{gundyrDurability}[GundyrDurability]]]}} @{rtype}+@{gundyrDurability}[GundyrDurability]]]}} @{charname_output}"> Durability</button>
 									</div>
 								</div>
 								<div class="sheet-pc-gundyr-runes">
 									<div></div>
-									<div class="sheet-container-header">
-										<button type="roll" name="roll_gundyrLesserRunes" value="@{wtype}&{template:simple} {{rname=GundyrLesserRunes}} {{mod=@{gundyrLesserRunes}}} {{r1=[[@{gundyrLesserRunes}[GundyrLesserRunes]]]}} @{rtype}+@{gundyrLesserRunes}[GundyrLesserRunes]]]}} @{charname_output}">Lesser Runes</button>
-										<button type="roll" name="roll_gundyrGreaterRunes" value="@{wtype}&{template:simple} {{rname=GundyrGreaterRunes}} {{mod=@{gundyrGreaterRunes}}} {{r1=[[@{gundyrGreaterRunes}[GundyrGreaterRunes]]]}} @{rtype}+@{gundyrGreaterRunes}[GundyrGreaterRunes]]]}} @{charname_output}">Greater Runes</button>
+									<div></div>
+									<div class="sheet-container-body">
+										<input type="text" name="attr_gundyrGreaterRunes" title="@{gundyrGreaterRunes}" value="0">
 									</div>
 									<div class="sheet-container-body">
 										<input type="text" name="attr_gundyrLesserRunes" title="@{gundyrLesserRunes}" value="0">
-										<span>/</span>
-										<input type="text" name="attr_gundyrGreaterRunes" title="@{gundyrGreaterRunes}" value="0">
+									</div>
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_gundyrGreaterRunes" value="@{wtype}&{template:simple} {{rname=GundyrGreaterRunes}} {{mod=@{gundyrGreaterRunes}}} {{r1=[[@{gundyrGreaterRunes}[GundyrGreaterRunes]]]}} @{rtype}+@{gundyrGreaterRunes}[GundyrGreaterRunes]]]}} @{charname_output}">Greater</button>
+									</div>
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_gundyrLesserRunes" value="@{wtype}&{template:simple} {{rname=GundyrLesserRunes}} {{mod=@{gundyrLesserRunes}}} {{r1=[[@{gundyrLesserRunes}[GundyrLesserRunes]]]}} @{rtype}+@{gundyrLesserRunes}[GundyrLesserRunes]]]}} @{charname_output}">Lesser</button>
 									</div>
 								</div>
 								<div class="sheet-pc-gundyr-amplification">
 									<div></div>
-									<div class="sheet-container-header">
-										<button type="roll" name="roll_gundyrAmplification" value="@{wtype}&{template:simple} {{rname=GundyrAmplification}} {{mod=@{gundyrAmplification}}} {{r1=[[@{gundyrAmplification}[GundyrAmplification]]]}} @{rtype}+@{gundyrAmplification}[GundyrAmplification]]]}} @{charname_output}">Amplification</button>
-									</div>
 									<div class="sheet-container-body">
 										<input type="text" name="attr_gundyrAmplification" title="@{gundyrAmplification}" value="0">
+									</div>
+									<div class="sheet-container-header">
+										<button type="roll" name="roll_gundyrAmplification" value="@{wtype}&{template:simple} {{rname=GundyrAmplification}} {{mod=@{gundyrAmplification}}} {{r1=[[@{gundyrAmplification}[GundyrAmplification]]]}} @{rtype}+@{gundyrAmplification}[GundyrAmplification]]]}} @{charname_output}">Amplification</button>
 									</div>
 								</div>
 							</div>
