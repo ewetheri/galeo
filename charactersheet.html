@@ -306,32 +306,27 @@
 								</div>
 								<fieldset class="repeating_proficiency">
 									<div class="sheet-fieldset-item">
-										<div class="sheet-toggle-unchecked">
-											<div class="sheet-pc-proficiency">
-												<button type="roll" name="roll_proficiency" value="TODO" class="sheet-button-d10"></button>
+										<div class="sheet-pc-proficiency">
+											<div class="sheet-pc-proficiency-roll">
+												<button type="roll" name="roll_check" value="@{whispertoggle}&{template:check} {{charactername=@{characterName}}} {{rollname=@{proficiencyName}}} {{roll=[[@{checkDice}+0+@{proficiencyMod}]]}}" class="sheet-button-d10"></button>
+											</div>
+											<div class="sheet-pc-proficiency-name">
 												<input type="text" name="attr_proficiencyName" class="sheet-hidden" value="">
+											</div>
+											<div class="sheet-pc-proficiency-stat">
 												<select name="attr_proficiencyStat" title="@{proficiencyStat}">
 													<option value="--" selected="selected">--</option>
-													<option value="vigor">Vigor</option>
-													<option value="intellect">Intellect</option>
-													<option value="prowess">Prowess</option>
-													<option value="spirit">Spirit</option>
+													<option value="vigor">VIG</option>
+													<option value="intellect">INT</option>
+													<option value="prowess">PRO</option>
+													<option value="spirit">SPI</option>
 												</select>
+											</div>
+											<div class="sheet-pc-proficiency-mod">
 												<input type="number" name="attr_proficiencyMod" class="sheet-hidden" value="">
 											</div>
 										</div>
 									</div>
-									<input type="hidden" name="attr_rollbase">
-									<input type="hidden" name="attr_rollbase_dmg">
-									<input type="hidden" name="attr_rollbase_crit">
-									<input type="hidden" name="attr_hldmg">
-									<input type="hidden" name="attr_spelllevel">
-									<input type="hidden" name="attr_itemid">
-									<input type="hidden" name="attr_spellid">
-									<input type="hidden" name="attr_spell_innate">
-									<input type="hidden" name="attr_versatile_alt">
-									<button type="roll" name="roll_attack_dmg" value="@{rollbase_dmg}" class="sheet-hidden"></button>
-									<button type="roll" name="roll_attack_crit" value="@{rollbase_crit}" class="sheet-hidden"></button>
 								</fieldset>
 									
 							</div>
@@ -503,6 +498,17 @@
 						</div>
 						<div class="sheet-template-body">
 							{{stat1}} / {{stat2}}
+						</div>
+					</div>
+				</rolltemplate>
+				
+				<rolltemplate class="sheet-rolltemplate-check">
+					<div class="sheet-template-stat-container">
+						<div class="sheet-template-header">
+							{{charactername}}'s {{rollname}} check
+						</div>
+						<div class="sheet-template-body">
+							{{roll}}
 						</div>
 					</div>
 				</rolltemplate>
