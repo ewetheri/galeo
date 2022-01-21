@@ -6,15 +6,15 @@
 			<input type="hidden" name="attr_rtype" class="sheet-roll-toggle">
 			<div class="sheet-section-roll-probable">
 				<label class="sheet-radio">
-					<input type="radio" name="attr_probabletoggle" value="{{query=1}} {{probable=1}} {{r2=[[@{d20}">
+					<input type="radio" name="attr_checkDice" value="3d10kh2">
 					<span title="@{advantagetoggle}">Probable</span>
 				</label>
 				<label class="sheet-radio">
-					<input type="radio" name="attr_probabletoggle" value="{{query=1}} {{normal=1}} {{r2=[[0d20" checked="checked">
+					<input type="radio" name="attr_checkDice" value="2d10" checked="checked">
 					<span title="@{advantagetoggle}">Normal</span>
 				</label>
 				<label class="sheet-radio">
-					<input type="radio" name="attr_probabletoggle" value="{{query=1}} {{improbable=1}} {{r2=[[@{d20}">
+					<input type="radio" name="attr_checkDice" value="3d10kl2">
 					<span title="@{advantagetoggle}">Improbable</span>
 				</label>
 			</div>
@@ -38,7 +38,7 @@
 					<div></div>
 				</div>
 				<div class="sheet-section-pc-header-name">
-					<input type="text" name="attr_character_name" title="@{character_name}">
+					<input type="text" name="attr_characterName" title="@{characterName}">
 				</div>
 				<div class="sheet-section-pc-header-details">
 					<div class="sheet-form">
@@ -46,7 +46,7 @@
 						<div class="sheet-form-body">
 							<div class="sheet-form-group">
 								<label>Class:</label>
-								<input type="text" name="attr_character_class" title="@{character_class}">
+								<input type="text" name="attr_characterClass" title="@{characterClass}">
 								<label>Level:</label>
 								<input type="number" name="attr_level" value="1">
 							</div>
@@ -68,6 +68,8 @@
 						<input type="radio" name="attr_tab" value="core" checked="checked">
 						<span class="sheet-tab-label">Core</span>
 						<div class="sheet-tab-content">
+						
+						
 							<!--
 							#############
 							CORE TAB
@@ -75,9 +77,12 @@
 							#############
 							-->
 							<div class="sheet-container-well sheet-pc-primaries">
+								<div class="sheet-pc-header">
+									<span>Primary Stats</span>
+								</div>
 								<div class="sheet-pc-primary">
 									<div class="sheet-container-header">
-										<button type="roll" name="roll_vigor" value="@{wtype}&{template:simple} {{rname=Vigor}} {{mod=@{vigor}}} {{r1=[[@{d20}+@{vigor}[Vigor]]]}} @{rtype}+@{vigor}[Vigor]]]}} @{charname_output}">Vigor</button>
+										<button type="roll" name="roll_vigor" value="@{whispertoggle}&{template:stat} {{charactername=@{characterName}}} {{rollname=Vigor}} {{stat=@{vigor}}}">Vigor</button>
 									</div>
 									<div class="sheet-container-body">
 										<input type="text" name="attr_vigor" title="@{vigor}" value="-1">
@@ -85,7 +90,7 @@
 								</div>
 								<div class="sheet-pc-primary">
 									<div class="sheet-container-header">
-										<button type="roll" name="roll_intellect" value="@{wtype}&{template:simple} {{rname=Intellect}} {{mod=@{intellect}}} {{r1=[[@{d20}+@{intellect}[Intellect]]]}} @{rtype}+@{intellect}[Intellect]]]}} @{charname_output}">Intellect</button>
+										<button type="roll" name="roll_intellect" value="@{whispertoggle}&{template:stat} {{charactername=@{characterName}}} {{rollname=Intellect}} {{stat=@{intellect}}}">Intellect</button>
 									</div>
 									<div class="sheet-container-body">
 										<input type="text" name="attr_intellect" title="@{intellect}" value="-1">
@@ -93,7 +98,7 @@
 								</div>
 								<div class="sheet-pc-primary">
 									<div class="sheet-container-header">
-										<button type="roll" name="roll_prowess" value="@{wtype}&{template:simple} {{rname=Prowess}} {{mod=@{prowess}}} {{r1=[[@{d20}+@{prowess}[Prowess]]]}} @{rtype}+@{prowess}[Prowess]]]}} @{charname_output}">Prowess</button>
+										<button type="roll" name="roll_prowess" value="@{whispertoggle}&{template:stat} {{charactername=@{characterName}}} {{rollname=Prowess}} {{stat=@{prowess}}}">Prowess</button>
 									</div>
 									<div class="sheet-container-body">
 										<input type="text" name="attr_prowess" title="@{prowess}" value="-1">
@@ -101,13 +106,15 @@
 								</div>
 								<div class="sheet-pc-primary">
 									<div class="sheet-container-header">
-										<button type="roll" name="roll_spirit" value="@{wtype}&{template:simple} {{rname=Spirit}} {{mod=@{spirit}}} {{r1=[[@{d20}+@{spirit}[Spirit]]]}} @{rtype}+@{spirit}[Spirit]]]}} @{charname_output}">Spirit</button>
+										<button type="roll" name="roll_spirit" value="@{whispertoggle}&{template:stat} {{charactername=@{characterName}}} {{rollname=Spirit}} {{stat=@{spirit}}}">Spirit</button>
 									</div>
 									<div class="sheet-container-body">
 										<input type="text" name="attr_spirit" title="@{spirit}" value="-1">
 									</div>
 								</div>
 							</div>
+							
+							
 							<!--
 							###############
 							CORE TAB
@@ -115,39 +122,62 @@
 							###############
 							-->
 							<div class="sheet-container-well sheet-pc-secondaries">
-								<div class="sheet-pc-secondaries-header">
+								<div class="sheet-pc-header">
 									<span>Secondary Stats</span>
 								</div>
 								<div class="sheet-pc-character-health">
 									<div class="sheet-container-header">
-										<button type="roll" name="roll_health" value="@{wtype}&{template:simple} {{rname=Health}} {{mod=@{health}}} {{r1=[[@{health}[Health]]]}} @{rtype}+@{health}[Health]]]}} @{charname_output}">Health:</button>
+										<button type="roll" name="roll_health" value="@{whispertoggle}&{template:doublestat} {{charactername=@{characterName}}} {{rollname=Health}} {{stat1=@{health}}} {{stat2=@{health_max}}}">Health:</button>
 									</div>
 									<div class="sheet-container-body">
 										<div>
-											<input type="text" name="attr_health" title="@{health}" value="10">
+											<input type="text" name="attr_health" title="@{health}" value="20">
 										</div>
 										<div class="sheet-stylized-slash"></div>
 										<div>
-											<span name="attr_health_max" title="@{health_max}">10</span>
+											<span name="attr_health_max" title="@{health_max}">20</span>
 										</div>
 									</div>
 								</div>
-								<div class="sheet-pc-character-take-damage">
-									
+								<div class="sheet-container-body sheet-pc-character-take-damage">
+									<div>
+										<input type="text" name="attr_takeCharacterDamageAmount" title="@{takeCharacterDamageAmount}" value="0">
+									</div>
+									<div>
+										<select name="attr_takeCharacterDamageType" title="@{takeCharacterDamageType}">
+											<option value="--" selected="selected">--</option>
+											<option value="strike">strike</option>
+											<option value="pierce">pierce</option>
+											<option value="force">force</option>
+											<option value="heat">heat</option>
+											<option value="cold">cold</option>
+											<option value="caustic">caustic</option>
+											<option value="hex">hex</option>
+											<option value="absolute">absolute</option>
+											<option value="healing">healing</option>
+										</select>
+									</div>
+									<div class="sheet-container-header">
+										<button type="action" name="act_takeCharacterDamage">Take Damage</button>
+									</div>
 								</div>
 								<div class="sheet-pc-character-encumbrance">
 									<div class="sheet-container-header">
-										<button type="roll" name="roll_encumbrance" value="@{wtype}&{template:simple} {{rname=Encumbrance}} {{mod=@{encumbrance}}} {{r1=[[@{encumbrance}[Encumbrance]]]}} @{rtype}+@{encumbrance}[Encumbrance]]]}} @{charname_output}">Encumbrance:</button>
+										<button type="roll" name="roll_encumbrance" value="@{whispertoggle}&{template:doublestat} {{charactername=@{characterName}}} {{rollname=Encumbrance}} {{stat1=@{encumbrance}}} {{stat2=@{encumbrance_max}}}">Weight:</button>
 									</div>
 									<div class="sheet-container-body">
-										<span name="attr_encumbrance" title="@{encumbrance}">0</span>kg
-										/
-										<span name="attr_encumbrance_max" title="@{encumbrance_max}">50</span>kg
+										<div>
+											<span name="attr_encumbrance" title="@{encumbrance}">0</span>
+										</div>
+										<div class="sheet-stylized-slash"></div>
+										<div>
+											<span name="attr_encumbrance_max" title="@{encumbrance_max}">50</span>
+										</div>
 									</div>
 								</div>
 								<div class="sheet-pc-character-speed">
 									<div class="sheet-container-header">
-										<button type="roll" name="roll_characterSpeed" value="@{wtype}&{template:simple} {{rname=characterSpeed}} {{mod=@{characterSpeed}}} {{r1=[[@{characterSpeed}[Speed]]]}} @{rtype}+@{characterSpeed}[Speed]]]}} @{charname_output}">Speed:</button>
+										<button type="roll" name="roll_characterSpeed" value="@{whispertoggle}&{template:stat} {{charactername=@{characterName}}} {{rollname=Speed}} {{stat=@{characterSpeed}}}">Speed:</button>
 									</div>
 									<div class="sheet-container-body">
 										<span name="attr_characterSpeed" title="@{characterSpeed}">0</span>m
@@ -155,13 +185,15 @@
 								</div>
 								<div class="sheet-pc-character-dodge">
 									<div class="sheet-container-header">
-										<button type="roll" name="roll_dodge" value="@{wtype}&{template:simple} {{rname=dodge}} {{mod=@{dodge}}} {{r1=[[@{dodge}[Dodge]]]}} @{rtype}+@{dodge}[Dodge]]]}} @{charname_output}">Dodge:</button>
+										<button type="roll" name="roll_dodge" value="@{whispertoggle}&{template:stat} {{charactername=@{characterName}}} {{rollname=Dodge}} {{stat=@{dodge}}}">Dodge:</button>
 									</div>
 									<div class="sheet-container-body">
-										<span name="attr_dodge" title="@{dodge}">0</span>
+										<span name="attr_dodge" title="@{dodge}">9</span>
 									</div>
 								</div>
 							</div>
+							
+							
 							<!--
 							############
 							CORE TAB
@@ -175,7 +207,7 @@
 										<input type="text" name="attr_defense" title="@{defense}" value="10">
 									</div>
 									<div class="sheet-container-header">
-										<button type="roll" name="roll_defense" value="@{wtype}&{template:simple} {{rname=Defense}} {{mod=@{defense}}} {{r1=[[@{defense}[Defense]]]}} @{rtype}+@{defense}[Defense]]]}} @{charname_output}">Defense</button>
+										<button type="roll" name="roll_defense" value="@{whispertoggle}&{template:stat} {{charactername=@{characterName}}} {{rollname=Defense}} {{stat=@{defense}}}">Defense</button>
 									</div>
 								</div>
 								<div class="sheet-pc-gundyr-energy">
@@ -184,7 +216,7 @@
 										<span name="attr_energy" title="@{energy}">10</span>
 									</div>
 									<div class="sheet-container-header">
-										<button type="roll" name="roll_energy" value="@{wtype}&{template:simple} {{rname=Energy}} {{mod=@{energy}}} {{r1=[[@{energy}[Energy]]]}} @{rtype}+@{energy}[Energy]]]}} @{charname_output}">Energy</button>
+										<button type="roll" name="roll_energy" value="@{whispertoggle}&{template:stat} {{charactername=@{characterName}}} {{rollname=Energy}} {{stat=@{energy}}}">Energy</button>
 									</div>
 								</div>
 								<div class="sheet-pc-gundyr-speed">
@@ -193,7 +225,7 @@
 										<input type="text" name="attr_gundyrSpeed" title="@{gundyrSpeed}" value="10">
 									</div>
 									<div class="sheet-container-header">
-										<button type="roll" name="roll_gundyrSpeed" value="@{wtype}&{template:simple} {{rname=Gundyr Speed}} {{mod=@{gundyrSpeed}}} {{r1=[[@{gundyrSpeed}[GundyrSpeed]]]}} @{rtype}+@{gundyrSpeed}[GundyrSpeed]]]}} @{charname_output}">Speed</button>
+										<button type="roll" name="roll_gundyrSpeed" value="@{whispertoggle}&{template:stat} {{charactername=@{characterName}}} {{rollname=Speed}} {{stat=@{gundyrSpeed}}}">Speed</button>
 									</div>
 								</div>
 								<div class="sheet-pc-gundyr-durability">
@@ -209,7 +241,7 @@
 									</div>
 									<div></div>
 									<div class="sheet-container-header">
-										<button type="roll" name="roll_durability" value="@{wtype}&{template:simple} {{rname=durability}} {{mod=@{durability}}} {{r1=[[@{durability}[Durability]]]}} @{rtype}+@{durability}[Durability]]]}} @{charname_output}">Durability</button>
+										<button type="roll" name="roll_durability" value="@{whispertoggle}&{template:doublestat} {{charactername=@{characterName}}} {{rollname=Durability}} {{stat1=@{durability}}} {{stat2=@{durability_max}}}">Durability</button>
 									</div>
 								</div>
 								<div class="sheet-pc-gundyr-runes">
@@ -222,25 +254,108 @@
 										<input type="text" name="attr_lesserRunes" title="@{lesserRunes}" value="0">
 									</div>
 									<div class="sheet-container-header">
-										<button type="roll" name="roll_greaterRunes" value="@{wtype}&{template:simple} {{rname=Greater Runes}} {{mod=@{greaterRunes}}} {{r1=[[@{greaterRunes}[Greater Runes]]]}} @{rtype}+@{greaterRunes}[Greater Runes]]]}} @{charname_output}">Greater</button>
+										<button type="roll" name="roll_greaterRunes" value="@{whispertoggle}&{template:stat} {{charactername=@{characterName}}} {{rollname=Greater Runes}} {{stat=@{greaterRunes}}}">Greater</button>
 									</div>
 									<div class="sheet-container-header">
-										<button type="roll" name="roll_lesserRunes" value="@{wtype}&{template:simple} {{rname=Lesser Runes}} {{mod=@{lesserRunes}}} {{r1=[[@{lesserRunes}[Lesser Runes]]]}} @{rtype}+@{lesserRunes}[Lesser Runes]]]}} @{charname_output}">Lesser</button>
+										<button type="roll" name="roll_lesserRunes" value="@{whispertoggle}&{template:stat} {{charactername=@{characterName}}} {{rollname=Lesser Runes}} {{stat=@{lesserRunes}}}">Lesser</button>
+									</div>
+								</div>
+								<div class="sheet-container-body sheet-pc-gundyr-take-damage">
+									<div class="sheet-pc-gundyr-take-damage-amount">
+										<input type="text" name="attr_takeGundyrDamageAmount" title="@{takeGundyrDamageAmount}" value="0">
+									</div>
+									<div class="sheet-pc-gundyr-take-damage-type">
+										<select name="attr_takeGundyrDamageType" title="@{takeGundyrDamageType}">
+											<option value="--" selected="selected">--</option>
+											<option value="strike">strike</option>
+											<option value="pierce">pierce</option>
+											<option value="force">force</option>
+											<option value="heat">heat</option>
+											<option value="cold">cold</option>
+											<option value="caustic">caustic</option>
+											<option value="hex">hex</option>
+											<option value="absolute">absolute</option>
+											<option value="healing">healing</option>
+										</select>
+									</div>
+									<div class="sheet-container-header">
+										<button type="action" name="act_takeGundyrDamage">Take Damage</button>
 									</div>
 								</div>
 								<div class="sheet-pc-gundyr-amplification">
 									<div></div>
 									<div class="sheet-container-body">
-										<input type="text" name="attr_gundyrAmplification" title="@{gundyrAmplification}" value="0">
+										<input type="text" name="attr_amplification" title="@{amplification}" value="0">
 									</div>
 									<div class="sheet-container-header">
-										<button type="roll" name="roll_gundyrAmplification" value="@{wtype}&{template:simple} {{rname=GundyrAmplification}} {{mod=@{gundyrAmplification}}} {{r1=[[@{gundyrAmplification}[GundyrAmplification]]]}} @{rtype}+@{gundyrAmplification}[GundyrAmplification]]]}} @{charname_output}">Amplification</button>
+										<button type="roll" name="roll_gundyrAmplification" value="@{whispertoggle}&{template:stat} {{charactername=@{characterName}}} {{rollname=Amplification}} {{stat=@{amplification}}}">Amplification</button>
 									</div>
 								</div>
 							</div>
+							
+							
+							<!--
+							#############
+							CORE TAB
+							PROFICIENCIES
+							#############
+							-->
 							<div class="sheet-container-well sheet-pc-proficiencies">
+								<div class="sheet-pc-header">
+									<span>Proficiencies</span>
+								</div>
+								<fieldset class="repeating_proficiency">
+									<div class="sheet-fieldset-item">
+										<div class="sheet-toggle-unchecked">
+											<div class="sheet-pc-proficiency">
+												<button type="roll" name="roll_proficiency" value="TODO" class="sheet-button-d10"></button>
+												<input type="text" name="attr_proficiencyName" class="sheet-hidden" value="">
+												<select name="attr_proficiencyStat" title="@{proficiencyStat}">
+													<option value="--" selected="selected">--</option>
+													<option value="vigor">Vigor</option>
+													<option value="intellect">Intellect</option>
+													<option value="prowess">Prowess</option>
+													<option value="spirit">Spirit</option>
+												</select>
+												<input type="number" name="attr_proficiencyMod" class="sheet-hidden" value="">
+											</div>
+										</div>
+									</div>
+									<input type="hidden" name="attr_rollbase">
+									<input type="hidden" name="attr_rollbase_dmg">
+									<input type="hidden" name="attr_rollbase_crit">
+									<input type="hidden" name="attr_hldmg">
+									<input type="hidden" name="attr_spelllevel">
+									<input type="hidden" name="attr_itemid">
+									<input type="hidden" name="attr_spellid">
+									<input type="hidden" name="attr_spell_innate">
+									<input type="hidden" name="attr_versatile_alt">
+									<button type="roll" name="roll_attack_dmg" value="@{rollbase_dmg}" class="sheet-hidden"></button>
+									<button type="roll" name="roll_attack_crit" value="@{rollbase_crit}" class="sheet-hidden"></button>
+								</fieldset>
+									
 							</div>
+							
+							
+							<!--
+							#########
+							CORE TAB
+							ABILITIES
+							#########
+							-->
 							<div class="sheet-container-well sheet-pc-abilities">
+							
+							</div>
+							
+							
+							<!--
+							########
+							CORE TAB
+							STATUSES
+							########
+							-->
+							<div class="sheet-container-well sheet-pc-statuses">
+							
 							</div>
 						</div>
 					</div>
@@ -324,19 +439,28 @@
 			<input type="hidden" name="attr_checkDice" value="2d10">
 			<input type="hidden" name="attr_checkDiceProbable" value="3d10kh2">
 			<input type="hidden" name="attr_checkDiceImprobable" value="3d10kl2">
+			<input type="hidden" name="attr_whisperToggle" value="">
+			<input type="hidden" name="attr_characterName" value="">
 			<input type="hidden" name="attr_level" value="1">
+			<input type="hidden" name="attr_kine" value="">
+			<input type="hidden" name="attr_height" value="0">
+			<input type="hidden" name="attr_weight" value="0">
+			
 			<!--CHARACTER-->
-			<input type="hidden" name="attr_health" value="20">
-			<input type="hidden" name="attr_health_max" value="20">
 			<input type="hidden" name="attr_healthMod" value="0">
-			<input type="hidden" name="attr_encumbrance" value="0">
-			<input type="hidden" name="attr_encumbrance_max" value="40">
 			<input type="hidden" name="attr_encumbranceMod" value="0">
-			<input type="hidden" name="attr_characterSpeed" value="20">
 			<input type="hidden" name="attr_characterSpeedMod" value="0">
-			<input type="hidden" name="attr_dodge" value="9">
 			<input type="hidden" name="attr_dodgeArmor" value="0">
 			<input type="hidden" name="attr_dodgeMod" value="0">
+			<input type="hidden" name="attr_characterResiststrike" value="0">
+			<input type="hidden" name="attr_characterResistpierce" value="0">
+			<input type="hidden" name="attr_characterResistforce" value="0">
+			<input type="hidden" name="attr_characterResistheat" value="0">
+			<input type="hidden" name="attr_characterResistcold" value="0">
+			<input type="hidden" name="attr_characterResistcaustic" value="0">
+			<input type="hidden" name="attr_characterResisthex" value="0">
+			<input type="hidden" name="attr_characterResistabsolute" value="0">
+
 			<!--GUNDYR-->
 			<input type="hidden" name="attr_defenseBase" value="10">
 			<input type="hidden" name="attr_defensePlating" value="0">
@@ -345,16 +469,122 @@
 			<input type="hidden" name="attr_energyBase" value="10">
 			<input type="hidden" name="attr_energyMod" value="0">
 			<input type="hidden" name="attr_defenseBase" value="0">
+			
+			<input type="hidden" name="attr_gundyrResiststrike" value="0">
+			<input type="hidden" name="attr_gundyrResistpierce" value="0">
+			<input type="hidden" name="attr_gundyrResistforce" value="0">
+			<input type="hidden" name="attr_gundyrResistheat" value="0">
+			<input type="hidden" name="attr_gundyrResistcold" value="0">
+			<input type="hidden" name="attr_gundyrResistcaustic" value="0">
+			<input type="hidden" name="attr_gundyrResisthex" value="0">
+			<input type="hidden" name="attr_gundyrResistabsolute" value="0">
+			
 			<!--DISPLAY & OPTIONS-->
 			<input type='hidden' name='attr_abstractHealth' value='1'>
 			<input type='hidden' name='attr_abstractDurability' value='1'>
 		</div>
 		<div class="sheet-section-templates">
 			<div class="sheet-rolltemplates">
+				<rolltemplate class="sheet-rolltemplate-stat">
+					<div class="sheet-template-stat-container">
+						<div class="sheet-template-header">
+							{{charactername}}'s {{rollname}}
+						</div>
+						<div class="sheet-template-body">
+							{{stat}}
+						</div>
+					</div>
+				</rolltemplate>
 				
+				<rolltemplate class="sheet-rolltemplate-doublestat">
+					<div class="sheet-template-stat-container">
+						<div class="sheet-template-header">
+							{{charactername}}'s {{rollname}}
+						</div>
+						<div class="sheet-template-body">
+							{{stat1}} / {{stat2}}
+						</div>
+					</div>
+				</rolltemplate>
 			</div>
 		</div>
 		<script type="text/worker">
+			// BUTTONS
+			on(`clicked:takeCharacterDamage`, function() {
+				getAttrs(["health", "health_max", "takeCharacterDamageAmount", "takeCharacterDamageType"], function(v) {
+					var update = {};
+					if (v["takeCharacterDamageType"] == "healing") {
+						var healing = parseInt(v["takeCharacterDamageAmount"], 10);
+						var currentHealth = parseInt(v["health"], 10) + healing;
+						var maxHealth = parseInt(v["health_max"], 10)
+						if (currentHealth > maxHealth) {
+							currentHealth = maxHealth;
+						}
+						update["health"] = currentHealth;
+						update["takeCharacterDamageAmount"] = 0;
+						update["takeCharacterDamageType"] = "--";
+						setAttrs(update);
+					} else if (v["takeCharacterDamageType"] != "--") {
+						getAttrs(["characterResist"+v["takeCharacterDamageType"]], function(v2) {
+							var damage = parseInt(v["takeCharacterDamageAmount"], 10);
+							var modifiedDamage = damage - parseInt(v2["characterResist"+v["takeCharacterDamageType"]] , 10);
+							var currentHealth = parseInt(v["health"], 10) - modifiedDamage;
+							update["health"] = currentHealth;
+							update["takeCharacterDamageAmount"] = 0;
+							update["takeCharacterDamageType"] = "--";
+							setAttrs(update);
+						});
+					} else {
+						update["takeCharacterDamageAmount"] = 0;
+						update["takeCharacterDamageType"] = "--";
+						setAttrs(update);
+					}
+				});
+			});
+			
+			on(`clicked:takeGundyrDamage`, function() {
+				getAttrs(["health", "durability", "durability_max", "takeGundyrDamageAmount", "takeGundyrDamageType"], function(v) {
+					var update = {};
+					if (v["takeGundyrDamageType"] == "healing") {
+						var healing = parseInt(v["takeGundyrDamageAmount"], 10);
+						var currentDurability = parseInt(v["durability"], 10) + healing;
+						var maxDurability = parseInt(v["durability_max"], 10)
+						if (currentDurability > maxDurability) {
+							currentDurability = maxDurability;
+						}
+						update["durability"] = currentDurability;
+						update["takeGundyrDamageAmount"] = 0;
+						update["takeGundyrDamageType"] = "--";
+						setAttrs(update);
+					} else if (v["takeGundyrDamageType"] != "--") {
+						getAttrs(["gundyrResist"+v["takeGundyrDamageType"]], function(v2) {
+							var damage = parseInt(v["takeGundyrDamageAmount"], 10);
+							var modifiedDamage = damage - parseInt(v2["gundyrResist"+v["takeGundyrDamageType"]] , 10);
+							var currentDurability = parseInt(v["durability"], 10);
+							if (currentDurability < modifiedDamage) {
+								var leftoverDamage = modifiedDamage - currentDurability;
+								update["health"] = parseInt(v["health"], 10) - leftoverDamage;
+								update["durability"] = 0;
+								update["takeGundyrDamageAmount"] = 0;
+								update["takeGundyrDamageType"] = "--";
+								setAttrs(update);
+							} else {
+								var afterDurability = currentDurability - modifiedDamage;
+								update["durability"] = afterDurability;
+								update["takeGundyrDamageAmount"] = 0;
+								update["takeGundyrDamageType"] = "--";
+								setAttrs(update);
+							}
+						});
+					} else {
+						update["takeGundyrDamageAmount"] = 0;
+						update["takeGundyrDamageType"] = "--";
+						setAttrs(update);
+					}
+				});
+			});
+			
+			// STAT CHANGES
 			on(`change:vigor`, function() {
 				update_proficiencies(`vigor`);
 				update_max_health();
